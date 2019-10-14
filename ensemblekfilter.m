@@ -49,7 +49,7 @@
 %   ===================================================================   %
 
 
-function [x_EnKF, x_tr,MSE] = ensemblekfilter(A,C,x_ini,w,v,q,y_meas,num_iterations,B,uk,sigma,kplot) 
+function [x_EnKF, x_tr,MSE] = ensemblekfilter(A,C,x_ini,w,v,q,y_meas,num_iterations,B,uk,sigma,tPlot,dt) 
 
 % OUTPUTS
 %   x_EnKF: Predicted state forward in time (k+1) (with noise)
@@ -198,6 +198,7 @@ end
 
 % ======================== POST-PROCESSING ============================   %
 
-ensemblekfilter_plots(kplot,q,w,v,y_meas,x_EnKF,x_tr,MSE)
-
+%ensemblekfilter_plots(kplot,q,w,v,y_meas,x_EnKF,x_tr,MSE)
+ensemblekfilter_plots(tPlot,q,w,v,y_meas,x_EnKF,x_tr,dt)
+MSE_plots(MSE,q)
 end

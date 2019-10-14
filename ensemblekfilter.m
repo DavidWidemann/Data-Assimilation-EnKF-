@@ -45,7 +45,7 @@
 %   Pxx, Pyy: estimated covariance matrices
 %   MSE:     mean-squared error
 %   x_EnKF: predicted state forward in time from ensemble kalman filter
-%   kplot:  time interval "k" to be plotted to show x_EnKF, x_tr and meas
+
 %   ===================================================================   %
 
 
@@ -99,7 +99,12 @@ function [x_EnKF, x_tr,MSE] = ensemblekfilter(A,C,x_ini,w,v,q,y_meas,num_iterati
 %           iteration sigma:  sample error standard deviation used to 
 %           generate initial ensemble from x_ini
 %
-%   kplot:  time interval "k" to be plotted to show x_EnKF, x_tr and meas
+%   sigma:  standard deviation of random sample error to initialize
+%           ensemble
+%
+%   tplot:  time t to be plotted 
+%
+%   dt:     time step 
 %   ===================================================================   %
 
 
@@ -198,7 +203,6 @@ end
 
 % ======================== POST-PROCESSING ============================   %
 
-%ensemblekfilter_plots(kplot,q,w,v,y_meas,x_EnKF,x_tr,MSE)
 ensemblekfilter_plots(tPlot,q,w,v,y_meas,x_EnKF,x_tr,dt)
 MSE_plots(MSE,q)
 end

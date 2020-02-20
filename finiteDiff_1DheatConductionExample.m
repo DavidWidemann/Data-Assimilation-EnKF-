@@ -142,8 +142,9 @@ clc
     [row,col] = size(y_meas);
     tPlot = 10;                         % time (s) for the plot
     
+    tic
     [x_EnKF, x_tr,MSE] = ensemblekfilter(A,C,x_ini,w,v,q,y_meas,tSteps,B,uk,sigma,tPlot,dt); 
-    %[x_EnKF, x_tr,MSE] = HeatConduction1D_ensemblekfilterV3(A,C,x_ini,w,v,q,y_meas,tEnd,B,uk,sigma); 
+    toc
 
    
 %% PLOTTING MSE
